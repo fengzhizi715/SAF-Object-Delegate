@@ -1,2 +1,3 @@
 include ':app'
 include ':saf-prefs-delegate'
+include ':saf-prefs-fastjson-delegates'
