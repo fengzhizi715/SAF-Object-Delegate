@@ -1,3 +1,3 @@
 # SAF-Object-Delegate
 
-使用Kotlin的委托，对SharedPreferences进行封装
+使用Kotlin的委托，对SharedPreferences、Extra进行封装
