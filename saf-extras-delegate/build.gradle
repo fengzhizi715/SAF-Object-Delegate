@@ -1,13 +1,17 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+def cfg = rootProject.ext.configuration // 配置
+def libs = rootProject.ext.libraries // 库
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion cfg.compileVersion
 
 
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 27
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -27,8 +31,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+repositories {
+    mavenCentral()
 }
