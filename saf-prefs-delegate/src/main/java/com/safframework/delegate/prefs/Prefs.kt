@@ -8,7 +8,7 @@ import kotlin.reflect.KProperty
 /**
  *
  * @FileName:
- *          com.safframework.delegate.prefs.Prefs.java
+ *          com.safframework.delegate.prefs.Prefs.kt
  * @author: Tony Shen
  * @date: 2018-06-11 19:03
  * @version V1.0 <描述当前版本功能>

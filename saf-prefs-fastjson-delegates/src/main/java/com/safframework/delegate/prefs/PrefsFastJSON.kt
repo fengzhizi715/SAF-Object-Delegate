@@ -1,4 +1,4 @@
-package com.safframework.delegate
+package com.safframework.delegate.prefs
 
 import android.content.SharedPreferences
 import com.alibaba.fastjson.JSON
@@ -10,7 +10,7 @@ import kotlin.reflect.KProperty
 /**
  *
  * @FileName:
- *          com.safframework.delegate.PrefsFastJSON.java
+ *          com.safframework.delegate.prefs.PrefsFastJSON.kt
  * @author: Tony Shen
  * @date: 2018-06-11 19:54
  * @version V1.0 <描述当前版本功能>
