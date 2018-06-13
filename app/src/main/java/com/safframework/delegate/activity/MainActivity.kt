@@ -7,7 +7,6 @@ import com.safframework.delegate.R
 import com.safframework.delegate.domain.User
 import com.safframework.ext.click
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.Serializable
 
 /**
  *

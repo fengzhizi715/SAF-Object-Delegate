@@ -23,7 +23,6 @@ class Demo4ExtrasDelegateActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         L.json(user)
-
         L.i(s)
     }
 }
