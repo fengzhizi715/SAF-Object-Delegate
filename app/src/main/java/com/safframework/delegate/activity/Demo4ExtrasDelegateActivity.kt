@@ -17,10 +17,13 @@ import com.safframework.log.L
 class Demo4ExtrasDelegateActivity: AppCompatActivity() {
 
     private val user: User? by extraDelegate("user")
+    private val s:String? by extraDelegate("string")
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         L.json(user)
+
+        L.i(s)
     }
 }
