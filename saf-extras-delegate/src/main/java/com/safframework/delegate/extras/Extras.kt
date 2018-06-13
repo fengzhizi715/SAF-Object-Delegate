@@ -28,9 +28,9 @@ class ExtrasDelegate<out T>(private val extraName: String, private val defaultVa
 
 }
 
-fun <T> extraProvider(extra: String, default: T) = ExtrasDelegate(extra, default)
+fun <T> extraDelegate(extra: String, default: T) = ExtrasDelegate(extra, default)
 
-fun extraProvider(extra: String) = extraProvider(extra, null)
+fun extraDelegate(extra: String) = extraDelegate(extra, null)
 
 @Suppress("UNCHECKED_CAST")
 private fun <T> getExtra(oldExtra: T?, extraName: String, thisRef: AppCompatActivity): T? =
