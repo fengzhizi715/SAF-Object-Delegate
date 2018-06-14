@@ -3,6 +3,7 @@ package com.safframework.delegate.activity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
+import com.safframework.delegate.domain.User
 import com.safframework.delegate.prefs.PrefsHelper
 import com.safframework.delegate.prefs.string
 import com.safframework.log.L
@@ -27,8 +28,8 @@ class Demo4PrefsDelegateActivity: AppCompatActivity() {
 
         val helper = PrefsHelper(PreferenceManager.getDefaultSharedPreferences(this))
 
-        helper.saveToken("11111")
+        helper.user = User("tony","abcd")
 
-        L.i(helper.token)
+        L.json(helper.user)
     }
 }

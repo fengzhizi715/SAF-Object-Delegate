@@ -15,7 +15,7 @@ import kotlin.reflect.KProperty
  * @date: 2018-06-11 19:54
  * @version V1.0 <描述当前版本功能>
  */
-inline fun <reified T> SharedPreferences.json(key: String? = null, defaultValue: T) =
+inline fun <reified T> SharedPreferences.json(defaultValue: T,key: String? = null) =
         object : ReadWriteProperty<Any, T> {
 
             override fun getValue(thisRef: Any, property: KProperty<*>): T {

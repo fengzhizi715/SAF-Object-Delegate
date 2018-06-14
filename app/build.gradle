@@ -30,6 +30,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     implementation project(':saf-extras-delegate')
     implementation project(':saf-prefs-delegate')
@@ -39,6 +40,7 @@ dependencies {
     implementation 'com.safframework.utils:saf-kotlin-utils:0.0.4.5'
     implementation 'com.safframework.log:saf-log:1.5.3'
     implementation "com.alibaba:fastjson:${libs.fastjson}"
+
 }
 
 repositories {

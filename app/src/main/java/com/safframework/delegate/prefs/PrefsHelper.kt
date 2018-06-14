@@ -1,6 +1,8 @@
 package com.safframework.delegate.prefs
 
 import android.content.SharedPreferences
+import com.safframework.delegate.domain.User
+
 
 /**
  *
@@ -12,14 +14,5 @@ import android.content.SharedPreferences
  */
 class PrefsHelper(prefs: SharedPreferences) {
 
-    var token by prefs.string()
-        private set
-
-    var count by prefs.int()
-        private set
-
-    fun saveToken(newToken: String) {
-        token = newToken
-        count++
-    }
+    var user by prefs.json<User?>(null)
 }
