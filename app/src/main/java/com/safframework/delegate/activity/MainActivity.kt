@@ -32,7 +32,13 @@ class MainActivity:AppCompatActivity() {
             val intent = Intent(this@MainActivity, Demo4ExtrasDelegateActivity::class.java)
             val u = User("Tony","123456")
             intent.putExtra("user",u)
-            intent.putExtra("string","just a test");
+            intent.putExtra("string","just a test")
+            startActivity(intent)
+        }
+
+        text2.click {
+
+            val intent = Intent(this@MainActivity, Demo4PrefsDelegateActivity::class.java)
             startActivity(intent)
         }
     }
