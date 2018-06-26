@@ -15,6 +15,7 @@ ext {
             supportVersion            : "27.0.2",
 
             fastjson                  : "1.1.68.android",
+            gson                      : "2.8.1"
     ]
 }
 
