@@ -35,6 +35,7 @@ inline fun <reified T> SharedPreferences.jsonList(key: String? = null) =
             override fun getValue(thisRef: Any, property: KProperty<*>): List<T> {
 
                 val s = getString(key ?: property.name, "")
+
                 return if (s.isBlank()) emptyList() else JSON.parseArray(s,T::class.java)
             }
 
