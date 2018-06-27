@@ -5,7 +5,6 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import com.safframework.delegate.domain.User
 import com.safframework.delegate.prefs.PrefsHelper
-import com.safframework.delegate.prefs.string
 import com.safframework.log.L
 
 /**
@@ -30,6 +29,9 @@ class Demo4PrefsDelegateActivity: AppCompatActivity() {
 
         helper.user = User("tony","abcd")
 
+        helper.name = "tony"
+
         L.json(helper.user)
+        L.i(helper.name)
     }
 }

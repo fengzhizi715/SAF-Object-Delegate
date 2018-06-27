@@ -17,4 +17,6 @@ class PrefsHelper(prefs: SharedPreferences) {
 //    var user by prefs.json<User?>(null)
 
     var user by prefs.gson<User?>(null)
+
+    var name by prefs.string("name")
 }
