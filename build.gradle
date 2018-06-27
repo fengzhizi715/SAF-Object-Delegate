@@ -55,7 +55,7 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-//tasks.getByPath(":saf-prefs-delegate:releaseAndroidJavadocs").enabled = false
-//tasks.getByPath(":saf-prefs-fastjson-delegates:releaseAndroidJavadocs").enabled = false
-//tasks.getByPath(":saf-prefs-gson-delegates:releaseAndroidJavadocs").enabled = false
-//tasks.getByPath(":saf-extras-delegate:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-prefs-delegate:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-prefs-fastjson-delegate:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-prefs-gson-delegate:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-extras-delegate:releaseAndroidJavadocs").enabled = false
