@@ -1,5 +1,5 @@
 include ':app'
 include ':saf-prefs-delegate'
-include ':saf-prefs-fastjson-delegates'
-include ':saf-prefs-gson-delegates'
+include ':saf-prefs-fastjson-delegate'
+include ':saf-prefs-gson-delegate'
 include ':saf-extras-delegate'

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
 
 def cfg = rootProject.ext.configuration // 配置
 def libs = rootProject.ext.libraries // 库
@@ -16,6 +17,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -34,10 +36,32 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation "com.alibaba:fastjson:${libs.fastjson}"
+    implementation "com.google.code.gson:gson:${libs.gson}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 repositories {
-    mavenCentral()
+    jcenter()
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+    //加上这些
+    tasks.withType(Javadoc) {
+        options{ encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
+}
+
+publish{
+    userOrg = 'fengzhizi715'
+    groupId = 'com.safframework.delegate'
+    artifactId = 'prefs-gson-delegate'
+    publishVersion = '0.1.0'
+    desc = 'this is a prefs delegate library with gson for android'
+    website = 'https://github.com/fengzhizi715/SAF-Object-Delegate'
 }
