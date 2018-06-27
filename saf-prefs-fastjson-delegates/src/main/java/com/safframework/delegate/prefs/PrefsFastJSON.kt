@@ -39,7 +39,6 @@ inline fun <reified T> SharedPreferences.jsonList(key: String? = null) =
                 return if (s.isBlank()) emptyList() else JSON.parseArray(s,T::class.java)
             }
 
-            override fun setValue(thisRef: Any, property: KProperty<*>, value: List<T>) {
+            override fun setValue(thisRef: Any, property: KProperty<*>, value: List<T>) =
                 edit().putString(key ?: property.name, JSONObject.toJSONString(value, SerializerFeature.WriteClassName)).apply()
-            }
         }

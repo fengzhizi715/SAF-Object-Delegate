@@ -25,9 +25,8 @@ inline fun <reified T> SharedPreferences.gson(defaultValue: T,key: String? = nul
                 return if (s.isBlank()) defaultValue else gson.fromJson(s, T::class.java)
             }
 
-            override fun setValue(thisRef: Any, property: KProperty<*>, value: T) {
+            override fun setValue(thisRef: Any, property: KProperty<*>, value: T)  =
                 edit().putString(key ?: property.name, gson.toJson(value)).apply()
-            }
         }
 
 inline fun <reified T> SharedPreferences.gsonList(key: String? = null) =
@@ -42,7 +41,6 @@ inline fun <reified T> SharedPreferences.gsonList(key: String? = null) =
                 return if (s.isBlank()) emptyList() else gson.fromJson<List<T>>(s, object : TypeToken<List<T>>() {}.type)
             }
 
-            override fun setValue(thisRef: Any, property: KProperty<*>, value: List<T>) {
+            override fun setValue(thisRef: Any, property: KProperty<*>, value: List<T>) =
                 edit().putString(key ?: property.name, gson.toJson(value)).apply()
-            }
         }
