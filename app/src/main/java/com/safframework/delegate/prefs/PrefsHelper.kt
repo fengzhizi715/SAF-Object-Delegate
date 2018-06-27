@@ -14,5 +14,7 @@ import com.safframework.delegate.domain.User
  */
 class PrefsHelper(prefs: SharedPreferences) {
 
-    var user by prefs.json<User?>(null)
+//    var user by prefs.json<User?>(null)
+
+    var user by prefs.gson<User?>(null)
 }

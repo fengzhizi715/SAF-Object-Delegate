@@ -35,6 +35,7 @@ dependencies {
     implementation project(':saf-extras-delegate')
     implementation project(':saf-prefs-delegate')
     implementation project(':saf-prefs-fastjson-delegates')
+    implementation project(':saf-prefs-gson-delegates')
 
     implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
     implementation 'com.safframework.utils:saf-kotlin-utils:0.0.4.5'
