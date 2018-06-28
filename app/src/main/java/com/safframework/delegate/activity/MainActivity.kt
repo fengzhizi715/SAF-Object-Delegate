@@ -36,6 +36,12 @@ class MainActivity:AppCompatActivity() {
             startActivity(intent)
         }
 
+        text2.click {
+
+            val intent = Intent(this@MainActivity, Demo4PrefsDelegateActivity::class.java)
+            startActivity(intent)
+        }
+
         text3.click {
 
             val intent = Intent(this@MainActivity, Demo4EncryptPrefsDelegateActivity::class.java)
