@@ -19,10 +19,14 @@ implementation 'com.safframework.delegate:extras-delegate:0.1.0'
 
 ## 2.1 
 
-### 下载安装
+### 2.1.1 下载安装
 
 Gradle:
 ```groovy
 implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 ```
 
+### 2.1.2 特点
+
+* 支持 SharedPreferences 的int、long、float、boolean、string、Set<String>
+* 支持对上述类型进行AES算法的加密，保障数据安全
