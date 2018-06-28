@@ -13,3 +13,16 @@ Gradle:
 ```groovy
 implementation 'com.safframework.delegate:extras-delegate:0.1.0'
 ```
+
+# 二. 封装SharedPreferences
+
+
+## 2.1 
+
+### 下载安装
+
+Gradle:
+```groovy
+implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
+```
+
