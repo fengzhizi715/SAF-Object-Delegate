@@ -21,7 +21,7 @@ import javax.crypto.spec.SecretKeySpec;
 class EncryptUtils private constructor() {
 
     private lateinit var key:String
-    
+
     fun key(key:String) {
 
         this.key = key

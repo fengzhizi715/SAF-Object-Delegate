@@ -45,5 +45,21 @@ fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emp
 fun SharedPreferences.string(key: String? = null, defValue: String = ""): ReadWriteProperty<Any, String> =
         delegate(key, defValue, SharedPreferences::getString, Editor::putString)
 
-
 fun SharedPreferences.initKey(key:String) = EncryptUtils.getInstance().key(key)
+
+/**
+ * encrypt function
+ * @return cipherText base64
+ */
+private fun encryptPreference(plainText: String): String {
+
+    return EncryptUtils.getInstance().encrypt(plainText)
+}
+
+/**
+ * decrypt function
+ * @return plainText
+ */
+private fun decryptPreference(cipherText: String): String {
+    return EncryptUtils.getInstance().decrypt(cipherText)
+}
