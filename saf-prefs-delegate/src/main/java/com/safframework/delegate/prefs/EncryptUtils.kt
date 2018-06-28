@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 /**
  *
  * @FileName:
- *          com.safframework.delegate.prefs.EncryptUtils.java
+ *          com.safframework.delegate.prefs.EncryptUtils.kt
  * @author: Tony Shen
  * @date: 2018-06-28 02:01
  * @version V1.0 <描述当前版本功能>
@@ -33,8 +33,7 @@ class EncryptUtils private constructor(context: Context) {
      */
     @SuppressLint("HardwareIds")
     private fun getDeviceSerialNumber(context: Context): String {
-        // We're using the Reflection API because Build.SERIAL is only available
-        // since API Level 9 (Gingerbread, Android 2.3).
+
         try {
             val deviceSerial = Build::class.java.getField("SERIAL").get(null) as String
             return if (TextUtils.isEmpty(deviceSerial)) {
@@ -43,7 +42,7 @@ class EncryptUtils private constructor(context: Context) {
                 deviceSerial
             }
         } catch (ignored: Exception) {
-            // Fall back  to Android_ID
+
             return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID)
         }
 
