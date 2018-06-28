@@ -27,7 +27,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.safframework.delegate.activity.Demo4PrefsDelegateActivity"
+            android:name="com.safframework.delegate.activity.Demo4EncryptPrefsDelegateActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
     </application>

@@ -7,12 +7,12 @@ import com.safframework.delegate.domain.User
 /**
  *
  * @FileName:
- *          com.safframework.delegate.prefs.PrefsHelper.java
+ *          com.safframework.delegate.prefs.EncryptPrefsHelper.java
  * @author: Tony Shen
  * @date: 2018-06-13 23:44
  * @version V1.0 <描述当前版本功能>
  */
-class PrefsHelper(prefs: SharedPreferences) {
+class EncryptPrefsHelper(prefs: SharedPreferences) {
 
     init {
 
