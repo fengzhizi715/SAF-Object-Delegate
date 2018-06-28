@@ -17,7 +17,7 @@ implementation 'com.safframework.delegate:extras-delegate:0.1.0'
 # 二. 封装SharedPreferences
 
 
-## 2.1 
+## 2.1 SharedPreferences存放int、long、float、boolean、string以及Set\<String\>
 
 ### 2.1.1 下载安装
 
@@ -28,7 +28,7 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 
 ### 2.1.2 特点
 
-* 支持 SharedPreferences 的int、long、float、boolean、string、Set\<String\>
+* 支持 SharedPreferences 的int、long、float、boolean、string以及Set\<String\>
 * 支持对上述类型使用AES算法进行加密，以保障数据安全
 
 
@@ -116,3 +116,8 @@ class EncryptPrefsHelper(prefs: SharedPreferences) {
 ```
 
 注意，实际使用过程中PrefsHelper应该是单例。
+
+
+## 2.2 SharedPreferences存放对象类型
+
+使用fastjson、gson来做对象的序列化。
