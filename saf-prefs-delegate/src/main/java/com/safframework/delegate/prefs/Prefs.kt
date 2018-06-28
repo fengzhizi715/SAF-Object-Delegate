@@ -39,8 +39,17 @@ fun SharedPreferences.float(key: String? = null, defValue: Float = 0f): ReadWrit
 fun SharedPreferences.boolean(key: String? = null, defValue: Boolean = false): ReadWriteProperty<Any, Boolean> =
         delegate(key, defValue, SharedPreferences::getBoolean, Editor::putBoolean)
 
-fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emptySet()): ReadWriteProperty<Any, Set<String>> =
-        delegate(key, defValue, SharedPreferences::getStringSet, Editor::putStringSet)
+fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emptySet(),isEncrypt:Boolean=false): ReadWriteProperty<Any, Set<String>> {
+
+    if (isEncrypt) {
+
+        return delegate(key, defValue, SharedPreferences::getEncryptStringSet, Editor::putEncryptStringSet)
+    } else {
+
+        return delegate(key, defValue, SharedPreferences::getStringSet, Editor::putStringSet)
+    }
+}
+
 
 fun SharedPreferences.string(key: String? = null, defValue: String = "",isEncrypt:Boolean=false): ReadWriteProperty<Any, String> {
 
@@ -65,6 +74,24 @@ fun Editor.putEncryptString(key: String, value: String) : Editor {
     return this
 }
 
+fun SharedPreferences.getEncryptStringSet(key: String, defValues: Set<String>): Set<String> {
+    val encryptSet = this.getStringSet(encryptPreference(key), null)
+            ?: return defValues
+    val decryptSet = HashSet<String>()
+    for (encryptValue in encryptSet) {
+        decryptSet.add(decryptPreference(encryptValue))
+    }
+    return decryptSet
+}
+
+fun Editor.putEncryptStringSet(key: String, values: Set<String>): Editor {
+    val encryptSet = HashSet<String>()
+    for (value in values) {
+        encryptSet.add(encryptPreference(value))
+    }
+    this.putStringSet(encryptPreference(key), encryptSet)
+    return this
+}
 
 /**
  * encrypt function
