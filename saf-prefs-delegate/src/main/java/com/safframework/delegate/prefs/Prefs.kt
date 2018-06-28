@@ -27,8 +27,16 @@ private inline fun <T> SharedPreferences.delegate(
                     edit().setter(key ?: property.name, value).apply()
         }
 
-fun SharedPreferences.int(key: String? = null, defValue: Int = 0): ReadWriteProperty<Any, Int> =
-        delegate(key, defValue, SharedPreferences::getInt, Editor::putInt)
+fun SharedPreferences.int(key: String? = null, defValue: Int = 0,isEncrypt:Boolean=false): ReadWriteProperty<Any, Int> {
+
+    if (isEncrypt) {
+
+        return delegate(key, defValue, SharedPreferences::getEncryptInt, Editor::putEncryptInt)
+    } else {
+
+        return delegate(key, defValue, SharedPreferences::getInt, Editor::putInt)
+    }
+}
 
 fun SharedPreferences.long(key: String? = null, defValue: Long = 0): ReadWriteProperty<Any, Long> =
         delegate(key, defValue, SharedPreferences::getLong, Editor::putLong)
@@ -63,6 +71,17 @@ fun SharedPreferences.string(key: String? = null, defValue: String = "",isEncryp
 }
 
 fun SharedPreferences.initKey(key:String) = EncryptUtils.getInstance().key(key)
+
+fun SharedPreferences.getEncryptInt(key: String, defValue: Int): Int {
+    val encryptValue = this.getString(encryptPreference(key), null)
+            ?: return defValue
+    return Integer.parseInt(decryptPreference(encryptValue))
+}
+
+fun Editor.putEncryptInt(key: String, value: Int): Editor {
+    this.putString(encryptPreference(key), encryptPreference(Integer.toString(value)))
+    return this
+}
 
 fun SharedPreferences.getEncryptString(key: String, defValue: String?) : String {
     val encryptValue = this.getString(encryptPreference(key), null)
