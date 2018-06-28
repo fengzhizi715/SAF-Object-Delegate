@@ -59,6 +59,7 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 
 ### 2.1.2 使用
 
+可以编写一个PrefsHelper，把需要使用SharedPreferences保存的属性放进来。
 
 ```kotlin
 import android.content.SharedPreferences
@@ -83,7 +84,7 @@ class PrefsHelper(prefs: SharedPreferences) {
 }
 ```
 
-要使用加密功能的话，需要先初始化秘钥，且秘钥为16位。
+要使用加密功能的话，需要先初始化密钥，且密钥为16位。
 
 ```kotlin
 import android.content.SharedPreferences
