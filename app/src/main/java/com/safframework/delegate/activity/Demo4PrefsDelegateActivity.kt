@@ -27,11 +27,12 @@ class Demo4PrefsDelegateActivity: AppCompatActivity() {
 
         val helper = PrefsHelper(PreferenceManager.getDefaultSharedPreferences(this))
 
-        helper.user = User("tony","abcd")
-
         helper.name = "tony"
+        helper.password = "1234abcd"
+        helper.age = 20
+        helper.isForeigner = false
 
-        L.json(helper.user)
         L.i(helper.name)
+        L.i(""+helper.age)
     }
 }

@@ -19,7 +19,11 @@ class PrefsHelper(prefs: SharedPreferences) {
         prefs.initKey("12345678910abcde")
     }
 
-    var user by prefs.gson<User?>(null)
-
     var name by prefs.string("name",isEncrypt=true)
+
+    var password by prefs.string("password",isEncrypt=true)
+
+    var age by prefs.int("age",isEncrypt=true)
+
+    var isForeigner by prefs.boolean("isForeigner",isEncrypt=true)
 }
