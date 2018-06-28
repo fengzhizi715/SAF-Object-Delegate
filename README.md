@@ -88,7 +88,6 @@ class PrefsHelper(prefs: SharedPreferences) {
 
 ```kotlin
 import android.content.SharedPreferences
-import com.safframework.delegate.domain.User
 
 
 /**
@@ -103,7 +102,7 @@ class EncryptPrefsHelper(prefs: SharedPreferences) {
 
     init {
 
-        prefs.initKey("12345678910abcde")
+        prefs.initKey("12345678910abcde") // 初始化密钥，且密钥是16位的
     }
 
     var name by prefs.string("name",isEncrypt=true)
