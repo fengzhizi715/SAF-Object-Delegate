@@ -56,6 +56,10 @@ task clean(type: Delete) {
 }
 
 tasks.getByPath(":saf-prefs-delegate:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-prefs-delegate:bintrayUpload").enabled = true
 tasks.getByPath(":saf-prefs-fastjson-delegate:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-prefs-fastjson-delegate:bintrayUpload").enabled = false
 tasks.getByPath(":saf-prefs-gson-delegate:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-prefs-gson-delegate:bintrayUpload").enabled = false
 tasks.getByPath(":saf-extras-delegate:releaseAndroidJavadocs").enabled = false
+tasks.getByPath(":saf-extras-delegate:bintrayUpload").enabled = false

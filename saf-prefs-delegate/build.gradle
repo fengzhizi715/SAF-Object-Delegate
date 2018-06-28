@@ -67,7 +67,7 @@ publish{
     userOrg = 'fengzhizi715'
     groupId = 'com.safframework.delegate'
     artifactId = 'prefs-delegate'
-    publishVersion = '0.1.0'
+    publishVersion = '1.0.0'
     desc = 'this is a prefs delegate library for android'
     website = 'https://github.com/fengzhizi715/SAF-Object-Delegate'
 }
