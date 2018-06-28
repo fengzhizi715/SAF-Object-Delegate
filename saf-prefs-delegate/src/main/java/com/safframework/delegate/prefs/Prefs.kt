@@ -27,7 +27,7 @@ private inline fun <T> SharedPreferences.delegate(
                     edit().setter(key ?: property.name, value).apply()
         }
 
-fun SharedPreferences.int(key: String? = null, defValue: Int = 0,isEncrypt:Boolean=false): ReadWriteProperty<Any, Int> {
+fun SharedPreferences.int(key: String? = null, defValue: Int = 0, isEncrypt:Boolean=false): ReadWriteProperty<Any, Int> {
 
     if (isEncrypt) {
 
@@ -38,7 +38,7 @@ fun SharedPreferences.int(key: String? = null, defValue: Int = 0,isEncrypt:Boole
     }
 }
 
-fun SharedPreferences.long(key: String? = null, defValue: Long = 0,isEncrypt:Boolean=false): ReadWriteProperty<Any, Long> {
+fun SharedPreferences.long(key: String? = null, defValue: Long = 0, isEncrypt:Boolean=false): ReadWriteProperty<Any, Long> {
 
     if (isEncrypt) {
 
@@ -49,13 +49,21 @@ fun SharedPreferences.long(key: String? = null, defValue: Long = 0,isEncrypt:Boo
     }
 }
 
-fun SharedPreferences.float(key: String? = null, defValue: Float = 0f): ReadWriteProperty<Any, Float> =
-        delegate(key, defValue, SharedPreferences::getFloat, Editor::putFloat)
+fun SharedPreferences.float(key: String? = null, defValue: Float = 0f, isEncrypt:Boolean=false): ReadWriteProperty<Any, Float> {
+
+    if(isEncrypt) {
+
+        return delegate(key, defValue, SharedPreferences::getEncryptFloat, Editor::putEncryptFloat)
+    } else {
+
+        return delegate(key, defValue, SharedPreferences::getFloat, Editor::putFloat)
+    }
+}
 
 fun SharedPreferences.boolean(key: String? = null, defValue: Boolean = false): ReadWriteProperty<Any, Boolean> =
         delegate(key, defValue, SharedPreferences::getBoolean, Editor::putBoolean)
 
-fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emptySet(),isEncrypt:Boolean=false): ReadWriteProperty<Any, Set<String>> {
+fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emptySet(), isEncrypt:Boolean=false): ReadWriteProperty<Any, Set<String>> {
 
     if (isEncrypt) {
 
@@ -66,7 +74,7 @@ fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emp
     }
 }
 
-fun SharedPreferences.string(key: String? = null, defValue: String = "",isEncrypt:Boolean=false): ReadWriteProperty<Any, String> {
+fun SharedPreferences.string(key: String? = null, defValue: String = "", isEncrypt:Boolean=false): ReadWriteProperty<Any, String> {
 
     if (isEncrypt) {
 
@@ -100,6 +108,18 @@ fun SharedPreferences.getEncryptLong(key: String, defValue: Long): Long {
 
 fun Editor.putEncryptLong(key: String, value: Long): Editor {
     this.putString(encryptPreference(key), encryptPreference(java.lang.Long.toString(value)))
+    return this
+}
+
+
+fun SharedPreferences.getEncryptFloat(key: String, defValue: Float): Float {
+    val encryptValue = this.getString(encryptPreference(key), null)
+            ?: return defValue
+    return java.lang.Float.parseFloat(decryptPreference(encryptValue))
+}
+
+fun Editor.putEncryptFloat(key: String, value: Float): Editor {
+    this.putString(encryptPreference(key), encryptPreference(java.lang.Float.toString(value)))
     return this
 }
 
