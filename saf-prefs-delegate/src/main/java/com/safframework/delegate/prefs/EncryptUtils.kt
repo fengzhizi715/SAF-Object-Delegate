@@ -22,6 +22,9 @@ class EncryptUtils private constructor() {
 
     private lateinit var key:String
 
+    /**
+     * 必须要16位密钥匙
+     */
     fun key(key:String) {
 
         this.key = key
@@ -73,8 +76,6 @@ class EncryptUtils private constructor() {
 
     companion object {
 
-        fun getInstance(): EncryptUtils {
-            return mHolder.instance
-        }
+        fun getInstance(): EncryptUtils = mHolder.instance
     }
 }

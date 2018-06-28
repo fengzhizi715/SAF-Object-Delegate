@@ -42,10 +42,29 @@ fun SharedPreferences.boolean(key: String? = null, defValue: Boolean = false): R
 fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emptySet()): ReadWriteProperty<Any, Set<String>> =
         delegate(key, defValue, SharedPreferences::getStringSet, Editor::putStringSet)
 
-fun SharedPreferences.string(key: String? = null, defValue: String = ""): ReadWriteProperty<Any, String> =
-        delegate(key, defValue, SharedPreferences::getString, Editor::putString)
+fun SharedPreferences.string(key: String? = null, defValue: String = "",isEncrypt:Boolean=false): ReadWriteProperty<Any, String> {
+
+    if (isEncrypt) {
+
+        return delegate(key, defValue, SharedPreferences::getEncryptString, Editor::putEncryptString)
+    } else {
+
+        return delegate(key, defValue, SharedPreferences::getString, Editor::putString)
+    }
+}
 
 fun SharedPreferences.initKey(key:String) = EncryptUtils.getInstance().key(key)
+
+fun SharedPreferences.getEncryptString(key: String, defValue: String?) : String {
+    val encryptValue = this.getString(encryptPreference(key), null)
+    return if (encryptValue == null) defValue?:"" else decryptPreference(encryptValue)
+}
+
+fun Editor.putEncryptString(key: String, value: String) : Editor {
+    this.putString(encryptPreference(key), encryptPreference(value))
+    return this
+}
+
 
 /**
  * encrypt function

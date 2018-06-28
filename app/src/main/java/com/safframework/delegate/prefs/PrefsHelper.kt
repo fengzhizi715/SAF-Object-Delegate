@@ -14,9 +14,12 @@ import com.safframework.delegate.domain.User
  */
 class PrefsHelper(prefs: SharedPreferences) {
 
-//    var user by prefs.json<User?>(null)
+    init {
+
+        prefs.initKey("12345678910abcde")
+    }
 
     var user by prefs.gson<User?>(null)
 
-    var name by prefs.string("name")
+    var name by prefs.string("name",isEncrypt=true)
 }
