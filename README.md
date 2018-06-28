@@ -28,5 +28,5 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 
 ### 2.1.2 特点
 
-* 支持 SharedPreferences 的int、long、float、boolean、string、Set<String>
-* 支持对上述类型进行AES算法的加密，保障数据安全
+* 支持 SharedPreferences 的int、long、float、boolean、string、Set\<String\>
+* 支持对上述类型使用AES算法进行加密，以保障数据安全
