@@ -38,8 +38,16 @@ fun SharedPreferences.int(key: String? = null, defValue: Int = 0,isEncrypt:Boole
     }
 }
 
-fun SharedPreferences.long(key: String? = null, defValue: Long = 0): ReadWriteProperty<Any, Long> =
-        delegate(key, defValue, SharedPreferences::getLong, Editor::putLong)
+fun SharedPreferences.long(key: String? = null, defValue: Long = 0,isEncrypt:Boolean=false): ReadWriteProperty<Any, Long> {
+
+    if (isEncrypt) {
+
+        return delegate(key, defValue, SharedPreferences::getEncryptLong, Editor::putEncryptLong)
+    } else {
+
+        return delegate(key, defValue, SharedPreferences::getLong, Editor::putLong)
+    }
+}
 
 fun SharedPreferences.float(key: String? = null, defValue: Float = 0f): ReadWriteProperty<Any, Float> =
         delegate(key, defValue, SharedPreferences::getFloat, Editor::putFloat)
@@ -58,7 +66,6 @@ fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emp
     }
 }
 
-
 fun SharedPreferences.string(key: String? = null, defValue: String = "",isEncrypt:Boolean=false): ReadWriteProperty<Any, String> {
 
     if (isEncrypt) {
@@ -72,6 +79,7 @@ fun SharedPreferences.string(key: String? = null, defValue: String = "",isEncryp
 
 fun SharedPreferences.initKey(key:String) = EncryptUtils.getInstance().key(key)
 
+
 fun SharedPreferences.getEncryptInt(key: String, defValue: Int): Int {
     val encryptValue = this.getString(encryptPreference(key), null)
             ?: return defValue
@@ -83,6 +91,19 @@ fun Editor.putEncryptInt(key: String, value: Int): Editor {
     return this
 }
 
+
+fun SharedPreferences.getEncryptLong(key: String, defValue: Long): Long {
+    val encryptValue = this.getString(encryptPreference(key), null)
+            ?: return defValue
+    return java.lang.Long.parseLong(decryptPreference(encryptValue))
+}
+
+fun Editor.putEncryptLong(key: String, value: Long): Editor {
+    this.putString(encryptPreference(key), encryptPreference(java.lang.Long.toString(value)))
+    return this
+}
+
+
 fun SharedPreferences.getEncryptString(key: String, defValue: String?) : String {
     val encryptValue = this.getString(encryptPreference(key), null)
     return if (encryptValue == null) defValue?:"" else decryptPreference(encryptValue)
@@ -92,6 +113,7 @@ fun Editor.putEncryptString(key: String, value: String) : Editor {
     this.putString(encryptPreference(key), encryptPreference(value))
     return this
 }
+
 
 fun SharedPreferences.getEncryptStringSet(key: String, defValues: Set<String>): Set<String> {
     val encryptSet = this.getStringSet(encryptPreference(key), null)
