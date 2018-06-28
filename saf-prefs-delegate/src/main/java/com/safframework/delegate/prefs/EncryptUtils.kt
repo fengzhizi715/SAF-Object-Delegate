@@ -18,34 +18,13 @@ import javax.crypto.spec.SecretKeySpec;
  * @date: 2018-06-28 02:01
  * @version V1.0 <描述当前版本功能>
  */
-class EncryptUtils private constructor(context: Context) {
+class EncryptUtils private constructor() {
 
-    private val key: String
+    private lateinit var key:String
+    
+    fun key(key:String) {
 
-    init {
-        key = getDeviceSerialNumber(context)
-    }
-
-    /**
-     * Gets the hardware serial number of this device.
-     *
-     * @return serial number or Settings.Secure.ANDROID_ID if not available.
-     */
-    @SuppressLint("HardwareIds")
-    private fun getDeviceSerialNumber(context: Context): String {
-
-        try {
-            val deviceSerial = Build::class.java.getField("SERIAL").get(null) as String
-            return if (TextUtils.isEmpty(deviceSerial)) {
-                Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID)
-            } else {
-                deviceSerial
-            }
-        } catch (ignored: Exception) {
-
-            return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID)
-        }
-
+        this.key = key
     }
 
     /**
@@ -87,13 +66,15 @@ class EncryptUtils private constructor(context: Context) {
         }
     }
 
+    private object mHolder {
+
+        val instance = EncryptUtils()
+    }
+
     companion object {
 
-        private var instance: EncryptUtils? = null
-
-        fun getInstance(context: Context): EncryptUtils =
-                instance ?: synchronized(this) {
-                    instance ?: EncryptUtils(context).also { instance = it }
-                }
+        fun getInstance(): EncryptUtils {
+            return mHolder.instance
+        }
     }
 }

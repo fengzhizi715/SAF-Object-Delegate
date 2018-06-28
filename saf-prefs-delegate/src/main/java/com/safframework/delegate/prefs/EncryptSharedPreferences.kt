@@ -53,7 +53,8 @@ class EncryptSharedPreferences: SharedPreferences {
      * @return cipherText base64
      */
     private fun encryptPreference(plainText: String): String {
-        return EncryptUtils.getInstance(mContext).encrypt(plainText)
+
+        return EncryptUtils.getInstance().encrypt(plainText)
     }
 
     /**
@@ -61,7 +62,7 @@ class EncryptSharedPreferences: SharedPreferences {
      * @return plainText
      */
     private fun decryptPreference(cipherText: String): String {
-        return EncryptUtils.getInstance(mContext).decrypt(cipherText)
+        return EncryptUtils.getInstance().decrypt(cipherText)
     }
 
     override fun getString(key: String, defValue: String?): String? {
