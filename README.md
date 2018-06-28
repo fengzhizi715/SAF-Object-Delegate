@@ -56,3 +56,63 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
     <string name="Mq2QcYiQhvDjHwBohnGWEQ==">er4sZVGF7k45nNmUq6p7Cg==</string>
 </map>
 ```
+
+### 2.1.2 使用
+
+
+```kotlin
+import android.content.SharedPreferences
+
+/**
+ *
+ * @FileName:
+ *          com.safframework.delegate.prefs.PrefsHelper.java
+ * @author: Tony Shen
+ * @date: 2018-06-28 23:43
+ * @version V1.0 <描述当前版本功能>
+ */
+class PrefsHelper(prefs: SharedPreferences) {
+
+    var name by prefs.string("name")
+
+    var password by prefs.string("password")
+
+    var age by prefs.int("age")
+
+    var isForeigner by prefs.boolean("isForeigner")
+}
+```
+
+要使用加密功能的话，需要先初始化秘钥，且秘钥为16位。
+
+```kotlin
+import android.content.SharedPreferences
+import com.safframework.delegate.domain.User
+
+
+/**
+ *
+ * @FileName:
+ *          com.safframework.delegate.prefs.EncryptPrefsHelper.java
+ * @author: Tony Shen
+ * @date: 2018-06-13 23:44
+ * @version V1.0 <描述当前版本功能>
+ */
+class EncryptPrefsHelper(prefs: SharedPreferences) {
+
+    init {
+
+        prefs.initKey("12345678910abcde")
+    }
+
+    var name by prefs.string("name",isEncrypt=true)
+
+    var password by prefs.string("password",isEncrypt=true)
+
+    var age by prefs.int("age",isEncrypt=true)
+
+    var isForeigner by prefs.boolean("isForeigner",isEncrypt=true)
+}
+```
+
+注意，实际使用过程中PrefsHelper应该是单例。
