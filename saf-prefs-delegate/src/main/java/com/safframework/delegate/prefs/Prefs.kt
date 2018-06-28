@@ -60,8 +60,17 @@ fun SharedPreferences.float(key: String? = null, defValue: Float = 0f, isEncrypt
     }
 }
 
-fun SharedPreferences.boolean(key: String? = null, defValue: Boolean = false): ReadWriteProperty<Any, Boolean> =
-        delegate(key, defValue, SharedPreferences::getBoolean, Editor::putBoolean)
+fun SharedPreferences.boolean(key: String? = null, defValue: Boolean = false, isEncrypt:Boolean=false): ReadWriteProperty<Any, Boolean> {
+
+    if(isEncrypt) {
+
+        return delegate(key, defValue, SharedPreferences::getEncryptBoolean, Editor::putEncryptBoolean)
+    } else {
+
+        return delegate(key, defValue, SharedPreferences::getBoolean, Editor::putBoolean)
+    }
+}
+
 
 fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emptySet(), isEncrypt:Boolean=false): ReadWriteProperty<Any, Set<String>> {
 
@@ -120,6 +129,18 @@ fun SharedPreferences.getEncryptFloat(key: String, defValue: Float): Float {
 
 fun Editor.putEncryptFloat(key: String, value: Float): Editor {
     this.putString(encryptPreference(key), encryptPreference(java.lang.Float.toString(value)))
+    return this
+}
+
+
+fun SharedPreferences.getEncryptBoolean(key: String, defValue: Boolean): Boolean {
+    val encryptValue = this.getString(encryptPreference(key), null)
+            ?: return defValue
+    return java.lang.Boolean.parseBoolean(decryptPreference(encryptValue))
+}
+
+fun Editor.putEncryptBoolean(key: String, value: Boolean): SharedPreferences.Editor {
+    this.putString(encryptPreference(key), encryptPreference(java.lang.Boolean.toString(value)))
     return this
 }
 
