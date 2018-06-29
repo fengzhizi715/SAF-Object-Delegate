@@ -1,10 +1,5 @@
 package com.safframework.delegate.prefs
 
-import android.text.TextUtils
-import android.os.Build
-import android.provider.Settings;
-import android.annotation.SuppressLint
-import android.content.Context
 import android.util.Base64
 
 import javax.crypto.Cipher;

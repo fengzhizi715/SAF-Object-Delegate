@@ -40,6 +40,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+//        maven{url 'https://dl.bintray.com/fengzhizi715/maven/'}
     }
 
     //加上这些
