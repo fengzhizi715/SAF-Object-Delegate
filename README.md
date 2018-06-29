@@ -3,7 +3,7 @@
 [![@Tony沈哲 on weibo](https://img.shields.io/badge/weibo-%40Tony%E6%B2%88%E5%93%B2-blue.svg)](http://www.weibo.com/fengzhizi715)
 [![License](https://img.shields.io/badge/license-Apache%202-lightgrey.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-基于Kotlin的委托机制实现对 Extra、SharedPreferences 的封装
+基于 Kotlin 的委托机制实现对 Extra、SharedPreferences 的封装
 
 模块|extras-delegate|prefs-delegate|prefs-fastjson-delegate|prefs-gson-delegate
 ---|:-------------:|:-------------:|:-------------:|:-------------:
@@ -206,7 +206,7 @@ implementation 'com.safframework.delegate:prefs-gson-delegate:0.1.0'
 
 ### 2.2.2 使用
 
-类似上面的 PrefsHelper，写一个 ObjectPrefsHelper。
+类似上面的 PrefsHelper，写了一个 ObjectPrefsHelper。它包含两个 user 对象，分别使用 fastjson 和 gson 来做序列化。
 
 ```kotlin
 import android.content.SharedPreferences
