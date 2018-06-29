@@ -122,7 +122,7 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 
 ### 2.1.2 使用
 
-可以编写一个PrefsHelper，把所需要使用SharedPreferences保存的属性放进来。
+可以编写一个 PrefsHelper，把所需要使用 SharedPreferences 保存的属性放进去。
 
 ```kotlin
 import android.content.SharedPreferences
@@ -178,12 +178,12 @@ class EncryptPrefsHelper(prefs: SharedPreferences) {
 }
 ```
 
-注意，实际使用过程中PrefsHelper应该是单例。
+注意，实际使用过程中 PrefsHelper 应该是单例。
 
 
 ## 2.2 SharedPreferences存放对象类型
 
-支持 fastjson、gson 来做对象的序列化。
+支持 fastjson、gson 分别来做对象的序列化。这里做成两个库，主要是考虑到某些项目已经使用了 fastjson 或者 gson，选取合适的库避免额外添加library。
 
 ### 2.2.1 下载安装
 
@@ -203,3 +203,29 @@ Gradle:
 ```groovy
 implementation 'com.safframework.delegate:prefs-gson-delegate:0.1.0'
 ```
+
+### 2.2.2 使用
+
+类似上面的 PrefsHelper，写一个 ObjectPrefsHelper。
+
+```kotlin
+import android.content.SharedPreferences
+import com.safframework.delegate.domain.User
+
+/**
+ *
+ * @FileName:
+ *          com.safframework.delegate.prefs.ObjectPrefsHelper.java
+ * @author: Tony Shen
+ * @date: 2018-06-29 11:56
+ * @version V1.0 <描述当前版本功能>
+ */
+class ObjectPrefsHelper(prefs: SharedPreferences) {
+
+    var user1 by prefs.json<User?>(null)
+
+    var user2 by prefs.gson<User?>(null)
+
+}
+```
+
