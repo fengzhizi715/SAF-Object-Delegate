@@ -49,7 +49,7 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 ```
 
 
-使用了aes算法之后，变成这样
+使用了aes算法之后，可能会变成这样：
 
 ```xml
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
@@ -126,7 +126,7 @@ class EncryptPrefsHelper(prefs: SharedPreferences) {
 
 支持fastjson、gson来做对象的序列化。
 
-下载安装
+### 2.2.1 下载安装
 
 使用fastjon
 
