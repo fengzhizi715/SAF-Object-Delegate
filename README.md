@@ -3,7 +3,7 @@
 [![@Tony沈哲 on weibo](https://img.shields.io/badge/weibo-%40Tony%E6%B2%88%E5%93%B2-blue.svg)](http://www.weibo.com/fengzhizi715)
 [![License](https://img.shields.io/badge/license-Apache%202-lightgrey.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-使用 Kotlin 的委托机制，对 SharedPreferences、Extra 进行封装
+基于Kotlin的委托机制实现对 Extra、SharedPreferences 的封装
 
 模块|extras-delegate|prefs-delegate|prefs-fastjson-delegate|prefs-gson-delegate
 ---|:-------------:|:-------------:|:-------------:|:-------------:
