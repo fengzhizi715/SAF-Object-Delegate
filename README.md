@@ -3,7 +3,7 @@
 [![@Tony沈哲 on weibo](https://img.shields.io/badge/weibo-%40Tony%E6%B2%88%E5%93%B2-blue.svg)](http://www.weibo.com/fengzhizi715)
 [![License](https://img.shields.io/badge/license-Apache%202-lightgrey.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-使用Kotlin的委托机制，对SharedPreferences、Extra进行封装
+使用 Kotlin 的委托机制，对 SharedPreferences、Extra 进行封装
 
 模块|extras-delegate|prefs-delegate|prefs-fastjson-delegate|prefs-gson-delegate
 ---|:-------------:|:-------------:|:-------------:|:-------------:
@@ -90,10 +90,10 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 ### 2.1.2 特点
 
 * 支持 SharedPreferences 的int、long、float、boolean、string以及Set\<String\>
-* 支持对上述类型使用AES算法进行加密，以保障数据安全
+* 支持对上述类型使用 AES 算法进行加密，以保障数据安全
 
 
-没有使用AES算法，SharedPreferences的数据文件大致是这样的：
+没有使用 AES 算法，SharedPreferences的数据文件大致是这样的：
 
 ```xml
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
@@ -106,7 +106,7 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 ```
 
 
-使用了AES算法之后，可能会变成这样：
+使用了 AES 算法之后，可能会变成这样：
 
 ```xml
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
@@ -145,7 +145,7 @@ class PrefsHelper(prefs: SharedPreferences) {
 }
 ```
 
-要使用加密功能的话，需要先初始化密钥，且密钥为16位。
+要使用加密功能的话，需要先初始化密钥，且密钥是16位。
 
 ```kotlin
 import android.content.SharedPreferences
@@ -181,7 +181,7 @@ class EncryptPrefsHelper(prefs: SharedPreferences) {
 
 ## 2.2 SharedPreferences存放对象类型
 
-支持fastjson、gson来做对象的序列化。
+支持 fastjson、gson 来做对象的序列化。
 
 ### 2.2.1 下载安装
 
