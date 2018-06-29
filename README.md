@@ -34,8 +34,7 @@ implementation 'com.safframework.delegate:extras-delegate:0.1.0'
         }
 ```
 
-> 这里到click函数，可以在 https://github.com/fengzhizi715/SAF-Kotlin-Utils 找到。
-
+> 这里的click函数，可以在 https://github.com/fengzhizi715/SAF-Kotlin-Utils 找到。
 
 从Demo4ExtrasDelegateActivity接受从上一个Activity中传递过来的参数。
 
@@ -94,7 +93,7 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 * 支持对上述类型使用AES算法进行加密，以保障数据安全
 
 
-没有使用aes算法，SharedPreferences的数据文件大致是这样的：
+没有使用AES算法，SharedPreferences的数据文件大致是这样的：
 
 ```xml
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
@@ -107,7 +106,7 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 ```
 
 
-使用了aes算法之后，可能会变成这样：
+使用了AES算法之后，可能会变成这样：
 
 ```xml
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
@@ -121,7 +120,7 @@ implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 
 ### 2.1.2 使用
 
-可以编写一个PrefsHelper，把需要使用SharedPreferences保存的属性放进来。
+可以编写一个PrefsHelper，把所需要使用SharedPreferences保存的属性放进来。
 
 ```kotlin
 import android.content.SharedPreferences
