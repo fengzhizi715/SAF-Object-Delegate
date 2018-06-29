@@ -5,6 +5,11 @@
 
 使用Kotlin的委托机制，对SharedPreferences、Extra进行封装
 
+模块|extras-delegate|prefs-delegate|prefs-fastjson-delegate|prefs-gson-delegate
+---|:-------------:|:-------------:|:-------------:|:-------------:
+最新版本|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/extras-delegate/images/download.svg) ](https://bintray.com/fengzhizi715/maven/extras-delegate/_latestVersion)|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/prefs-delegate/images/download.svg) ](https://bintray.com/fengzhizi715/maven/prefs-delegate/_latestVersion)| [ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/prefs-fastjson-delegate/images/download.svg) ](https://bintray.com/fengzhizi715/maven/prefs-fastjson-delegate/_latestVersion)|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/prefs-gson-delegate/images/download.svg) ](https://bintray.com/fengzhizi715/maven/prefs-gson-delegate/_latestVersion)
+
+
 # 一. 封装Extra
 
 ## 1.1 下载安装
