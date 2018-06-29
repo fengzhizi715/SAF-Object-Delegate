@@ -34,6 +34,9 @@ implementation 'com.safframework.delegate:extras-delegate:0.1.0'
         }
 ```
 
+> 这里到click函数，可以在 https://github.com/fengzhizi715/SAF-Kotlin-Utils 找到。
+
+
 从Demo4ExtrasDelegateActivity接受从上一个Activity中传递过来的参数。
 
 ```kotlin
