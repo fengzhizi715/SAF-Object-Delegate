@@ -18,6 +18,54 @@
 implementation 'com.safframework.delegate:extras-delegate:0.1.0'
 ```
 
+## 1.2 使用
+
+
+点击某个控件，跳转到下一个页面，并传递参数。
+
+```kotlin
+        text1.click{
+
+            val intent = Intent(this@MainActivity, Demo4ExtrasDelegateActivity::class.java)
+            val u = User("Tony","123456")
+            intent.putExtra("user",u)
+            intent.putExtra("string","just a test")
+            startActivity(intent)
+        }
+```
+
+从Demo4ExtrasDelegateActivity接受从上一个Activity中传递过来的参数。
+
+```kotlin
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.safframework.delegate.domain.User
+import com.safframework.delegate.extras.extraDelegate
+import com.safframework.log.L
+
+/**
+ *
+ * @FileName:
+ *          com.safframework.delegate.activity.Demo4ExtrasDelegateActivity.java
+ * @author: Tony Shen
+ * @date: 2018-06-13 17:42
+ * @version V1.0 <描述当前版本功能>
+ */
+class Demo4ExtrasDelegateActivity: AppCompatActivity() {
+
+    private val user: User? by extraDelegate("user")
+    private val s:String? by extraDelegate("string")
+
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        L.json(user)
+        L.i(s)
+    }
+}
+```
+
+
 # 二. 封装SharedPreferences
 
 
