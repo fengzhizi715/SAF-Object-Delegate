@@ -65,6 +65,13 @@ class Demo4ExtrasDelegateActivity: AppCompatActivity() {
 }
 ```
 
+所传递过来的任何对象类型，都可以使用如下的方式获取Extras。只要保证，extra的key正确即可。
+
+```kotlin
+    private val user: User? by extraDelegate("user")
+    private val s:String? by extraDelegate("string")
+```
+
 
 # 二. 封装SharedPreferences
 
