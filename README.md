@@ -14,12 +14,13 @@
 
 ## 1.1 下载安装
 
+Gradle:
+
 ```groovy
 implementation 'com.safframework.delegate:extras-delegate:0.1.0'
 ```
 
 ## 1.2 使用
-
 
 点击某个控件，跳转到下一个页面，并传递参数。
 
@@ -83,6 +84,7 @@ class Demo4ExtrasDelegateActivity: AppCompatActivity() {
 ### 2.1.1 下载安装
 
 Gradle:
+
 ```groovy
 implementation 'com.safframework.delegate:prefs-delegate:1.0.0'
 ```
@@ -185,14 +187,18 @@ class EncryptPrefsHelper(prefs: SharedPreferences) {
 
 ### 2.2.1 下载安装
 
-使用fastjon
+使用fastjon序列化对象
+
+Gradle:
 
 ```groovy
 implementation 'com.safframework.delegate:prefs-fastjson-delegate:0.1.0'
 ```
 
 
-使用gson
+使用gson序列化对象
+
+Gradle:
 
 ```groovy
 implementation 'com.safframework.delegate:prefs-gson-delegate:0.1.0'
