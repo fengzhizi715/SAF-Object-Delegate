@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/text1"
@@ -11,7 +11,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/textview_border"
         android:gravity="center"
-        android:text="Extra的委托使用"/>
+        android:text="Extra的委托使用" />
 
     <TextView
         android:id="@+id/text2"
@@ -20,7 +20,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/textview_border"
         android:gravity="center"
-        android:text="SharedPreferences的委托使用"/>
+        android:text="SharedPreferences的委托使用" />
 
     <TextView
         android:id="@+id/text3"
@@ -29,6 +29,15 @@
         android:layout_margin="10dp"
         android:background="@drawable/textview_border"
         android:gravity="center"
-        android:text="对SharedPreferences的内容加密"/>
+        android:text="对SharedPreferences的内容加密" />
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/textview_border"
+        android:gravity="center"
+        android:text="任意对象的存取" />
 
 </LinearLayout>

@@ -47,5 +47,11 @@ class MainActivity:AppCompatActivity() {
             val intent = Intent(this@MainActivity, Demo4EncryptPrefsDelegateActivity::class.java)
             startActivity(intent)
         }
+
+        text4 .click {
+
+            val intent = Intent(this@MainActivity, Demo4ObjectPrefsDelegateActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
