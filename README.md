@@ -35,9 +35,9 @@ implementation 'com.safframework.delegate:extras-delegate:0.1.0'
         }
 ```
 
-> 这里的click函数，可以在 https://github.com/fengzhizi715/SAF-Kotlin-Utils 找到。
+> 这里的 click 函数是一个扩展函数，可以在 https://github.com/fengzhizi715/SAF-Kotlin-Utils 找到。
 
-从Demo4ExtrasDelegateActivity接受从上一个Activity中传递过来的参数。
+从Demo4ExtrasDelegateActivity接受来自上一个Activity中传递过来的参数。
 
 ```kotlin
 import android.os.Bundle
@@ -180,6 +180,16 @@ class EncryptPrefsHelper(prefs: SharedPreferences) {
 
 注意，实际使用过程中 PrefsHelper 应该是单例。
 
+> 由于，com.novoda.bintray-release插件和gradle版本升级到当前最新版本。该模块也已经上传到jcenter，要是引入到项目中出现“Failed to resolve: com.safframework.delegate:prefs-delegate:1.0.0”时，可以采用临时解决方案，在项目根目录的build.gradle中添加如下的代码。
+```groovy
+allprojects {
+    repositories {
+        ......
+        maven{url 'https://dl.bintray.com/fengzhizi715/maven/'}
+    }
+}
+```
+
 
 ## 2.2 SharedPreferences存放对象类型
 
@@ -228,4 +238,5 @@ class ObjectPrefsHelper(prefs: SharedPreferences) {
 
 }
 ```
+
 
