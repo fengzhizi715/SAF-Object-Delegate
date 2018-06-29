@@ -14,7 +14,6 @@
 
 ## 1.1 下载安装
 
-Gradle:
 ```groovy
 implementation 'com.safframework.delegate:extras-delegate:0.1.0'
 ```
@@ -125,4 +124,19 @@ class EncryptPrefsHelper(prefs: SharedPreferences) {
 
 ## 2.2 SharedPreferences存放对象类型
 
-使用fastjson、gson来做对象的序列化。
+支持fastjson、gson来做对象的序列化。
+
+下载安装
+
+使用fastjon
+
+```groovy
+implementation 'com.safframework.delegate:prefs-fastjson-delegate:0.1.0'
+```
+
+
+使用gson
+
+```groovy
+implementation 'com.safframework.delegate:prefs-gson-delegate:0.1.0'
+```
