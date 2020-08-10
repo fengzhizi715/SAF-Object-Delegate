@@ -22,7 +22,7 @@ inline fun <reified T> SharedPreferences.json(defaultValue: T,key: String? = nul
 
                 val s = getString(key ?: property.name, "")
 
-                return if (s.isBlank()) defaultValue else JSON.parseObject(s, T::class.java)
+                return if (s.isNullOrBlank()) defaultValue else JSON.parseObject(s, T::class.java)
             }
 
             override fun setValue(thisRef: Any, property: KProperty<*>, value: T) =
@@ -36,7 +36,7 @@ inline fun <reified T> SharedPreferences.jsonList(key: String? = null) =
 
                 val s = getString(key ?: property.name, "")
 
-                return if (s.isBlank()) emptyList() else JSON.parseArray(s,T::class.java)
+                return if (s.isNullOrBlank()) emptyList() else JSON.parseArray(s,T::class.java)
             }
 
             override fun setValue(thisRef: Any, property: KProperty<*>, value: List<T>) =

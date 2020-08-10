@@ -9,8 +9,6 @@ def libs = rootProject.ext.libraries // 库
 android {
     compileSdkVersion cfg.compileVersion
 
-
-
     defaultConfig {
         minSdkVersion cfg.minSdk
         targetSdkVersion cfg.targetSdk
@@ -40,7 +38,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
+    implementation "androidx.appcompat:appcompat:${libs.appcompat}"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

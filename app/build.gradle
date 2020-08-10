@@ -6,11 +6,12 @@ def cfg = rootProject.ext.configuration // 配置
 def libs = rootProject.ext.libraries // 库
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion cfg.compileVersion
+    buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
         applicationId "com.safframework.delegate"
-        minSdkVersion 15
-        targetSdkVersion 27
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -25,7 +26,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "androidx.appcompat:appcompat:${libs.appcompat}"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -37,9 +38,9 @@ dependencies {
     implementation project(':saf-prefs-fastjson-delegate')
     implementation project(':saf-prefs-gson-delegate')
 
-    implementation 'com.safframework.utils:saf-kotlin-ext:0.0.3.4'
-    implementation 'com.safframework.utils:saf-kotlin-utils:0.0.4.5'
-    implementation 'com.safframework.log:saf-log:1.5.3'
+    implementation 'com.safframework.utils:saf-kotlin-ext:0.2.0'
+    implementation 'com.safframework.utils:saf-kotlin-utils:0.2.0'
+    implementation 'com.safframework.log:saf-log-core:2.5.1'
     implementation "com.alibaba:fastjson:${libs.fastjson}"
 
 }

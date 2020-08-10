@@ -79,7 +79,9 @@ fun SharedPreferences.stringSet(key: String? = null, defValue: Set<String> = emp
         return delegate(key, defValue, SharedPreferences::getEncryptStringSet, Editor::putEncryptStringSet)
     } else {
 
-        return delegate(key, defValue, SharedPreferences::getStringSet, Editor::putStringSet)
+        return delegate(key, defValue, {
+            _,_ -> this.getStringSet(key,defValue)?:defValue
+        }, Editor::putStringSet)
     }
 }
 
@@ -90,7 +92,9 @@ fun SharedPreferences.string(key: String? = null, defValue: String = "", isEncry
         return delegate(key, defValue, SharedPreferences::getEncryptString, Editor::putEncryptString)
     } else {
 
-        return delegate(key, defValue, SharedPreferences::getString, Editor::putString)
+        return delegate(key, defValue, {
+            _,_ -> this.getString(key,defValue)?:defValue
+        }, Editor::putString)
     }
 }
 
