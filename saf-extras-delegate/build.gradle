@@ -38,7 +38,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "androidx.appcompat:appcompat:${libs.appcompat}"
+    compileOnly "androidx.appcompat:appcompat:${libs.appcompat}"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -66,7 +66,7 @@ publish{
     userOrg = 'fengzhizi715'
     groupId = 'com.safframework.delegate'
     artifactId = 'extras-delegate'
-    publishVersion = '0.1.0'
+    publishVersion = "$delegate_version"
     desc = 'this is an extras delegate library for android'
     website = 'https://github.com/fengzhizi715/SAF-Object-Delegate'
 }
